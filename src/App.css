@@ -12,11 +12,49 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.childAddComponent
+{
+margin-top: 10px;
 
+}
+.addButton
+{
+  height: 35px;
+  width: auto;
+  background-color: gold;
+  justify-content: center;
+
+}
+h4{
+  margin: 0 auto;
+}
+label
+{
+  margin-right: 5px;
+}
+#Year
+{
+  margin-left: 10px;
+}
+.formClass
+{
+ display: flexbox;
+ align-items: center;
+ justify-content: center;
+}
+.movieCard
+{
+  width: fit-content;
+  height: auto;
+  color: goldenrod;
+  background-color: white ;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+  max-height: 100vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
