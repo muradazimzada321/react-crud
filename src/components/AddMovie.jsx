@@ -6,16 +6,16 @@ import { movieCollectionRef } from "../lib/firestore.collections";
 export default function AddMovie()
 {
     const [Name,setName] = useState('')
-    const [Editor,setEditor] = useState('')
+    const [Director,setDirector] = useState('')
     const [Year,setYear] = useState('')
 
    function handleSubmit(e) {
        e.preventDefault();
-       if(Name==='' || Editor==='' || Year==='')
+       if(Name==='' || Director==='' || Year==='')
      {  alert('All fields must be filled out')
        return
      }
-      addDoc(movieCollectionRef,{Name,Editor,Year}).then(response =>{
+      addDoc(movieCollectionRef,{Name,Director,Year}).then(response =>{
       console.log(response)}).catch(error=>{console.log(error)})
    }
    return (
@@ -27,9 +27,9 @@ export default function AddMovie()
                       <input id='Name' value={Name} onChange={e=> setName (e.target.value)}/>   
                    </div>
          <div className='childAddComponent'>
-         <label>Editor</label>
-               <input id='Editor' value={Editor} onChange={
-                   e=> setEditor (e.target.value)}/>
+         <label>Director</label>
+               <input id='Director' value={Director} onChange={
+                   e=> setDirector(e.target.value)}/>
          </div>
 
        <div className='childAddComponent'>
@@ -41,8 +41,6 @@ export default function AddMovie()
           <div className='childAddComponent'>  
           <button className='addButton' type='submit'>Add Movie</button></div>
           </form>
-
-         
       </div>
 
     )

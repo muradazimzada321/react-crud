@@ -3,11 +3,13 @@ import  {doc,getDocs,deleteDoc} from 'firebase/firestore'
 import {db } from '../lib/init-firebase'
 import '../App.css';
 import { movieCollectionRef } from "../lib/firestore.collections";
+import App from "../App";
 export default function ListMovies()
 {
   const [movies,setMovies] = useState([])
 
   useEffect(()=>
+
   {
       getMovies()
   },[])
@@ -31,8 +33,10 @@ export default function ListMovies()
   }
   function deleteMovie(id)
   {
+      alert(id)
       const docRef = doc(movieCollectionRef,id)
       deleteDoc(docRef).then(()=>console.log('document Deleted')).catch((error)=> console.log(error))
+     // window.location.reload();
   }
   return (
 <div>
@@ -41,7 +45,7 @@ export default function ListMovies()
         {movies.map(movie=>
             (
                 <div className="movieCard">
-            <li key={movie.id}>{movie.data.Name} <br/> {movie.data.Editor} <br/> {movie.data.Year} <br/></li>
+            <li key={movie.id}>{movie.data.Name} <br/> {movie.data.Director} <br/> {movie.data.Year} <br/></li>
               <button onClick={()=> deleteMovie(movie.id)}>Delete</button>
              </div>
             ))}
